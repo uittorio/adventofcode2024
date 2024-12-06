@@ -1,5 +1,5 @@
+use regex::Regex;
 use std::fs;
-use regex::{Captures, Match, Matches, Regex};
 
 pub fn run() -> i32 {
     let data = fs::read_to_string("inputs/challenge_03a.txt").expect("Cannot find the file");
@@ -30,7 +30,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn safe_on_removing_second_index() {
+    fn simple_check() {
         let to_multiply = vec![(10, 20), (40, 1)];
         let result = multiply_sum(to_multiply);
         assert_eq!(result, 240);
