@@ -108,4 +108,10 @@ mod tests {
         let result = get_safe_reports(reports);
         assert_eq!(result, 0);
     }
+
+    #[test]
+    fn final_result() {
+        let result = run();
+        assert_eq!(result, 665);
+    }
 }

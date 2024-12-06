@@ -53,4 +53,10 @@ mod tests {
         let result = get_result(first, second);
         assert_eq!(result, 0);
     }
+
+    #[test]
+    fn final_result() {
+        let result = run();
+        assert_eq!(result, 23963899);
+    }
 }

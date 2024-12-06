@@ -35,4 +35,10 @@ mod tests {
         let result = multiply_sum(to_multiply);
         assert_eq!(result, 240);
     }
+
+    #[test]
+    fn final_result() {
+        let result = run();
+        assert_eq!(result, 179571322);
+    }
 }
