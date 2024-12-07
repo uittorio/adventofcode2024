@@ -4,6 +4,8 @@ use std::fs;
 pub fn run() -> i32 {
     let data = fs::read_to_string("inputs/challenge_03a.txt").expect("Cannot find the file");
 
+    let regex = Regex::new(r"mul\((\d+,\d+)\)").unwrap();
+
     let data_do: Vec<&str> = data
         .split("do()")
         .map(|d| d.split("don't()").take(1).collect::<Vec<_>>())
@@ -13,7 +15,8 @@ pub fn run() -> i32 {
     let mut all_to_multiply = vec![];
 
     for d in data_do {
-        let to_multiply = Regex::new(r"mul\((\d+,\d+)\)").unwrap().captures_iter(d).map(|c| {
+
+        let to_multiply = regex.captures_iter(d).map(|c| {
             let split = c.get(1)
                 .unwrap()
                 .as_str()
