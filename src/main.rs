@@ -6,8 +6,9 @@ mod challenge_03a;
 mod challenge_03b;
 mod challenge_04a;
 mod challenge_04b;
+mod challenge_05a;
 
 fn main() {
-    let result = challenge_04b::run();
+    let result = challenge_05a::run();
     println!("Result: {}", result);
 }

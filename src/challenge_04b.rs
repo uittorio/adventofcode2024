@@ -28,7 +28,6 @@ fn mas_inx_matches(matrix: Vec<Vec<&str>>) -> i32 {
 }
 
 fn search_mas(matrix: &Vec<Vec<&str>>, line_index: usize, value_index: usize) -> bool {
-
     if there_is_no_space_up(line_index) {
         return false
     }
