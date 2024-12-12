@@ -1,5 +1,4 @@
 use std::fs;
-use std::ops::Index;
 
 pub fn run() -> i32 {
     let data = fs::read_to_string("inputs/challenge_05a.txt").expect("Cannot find the file");
