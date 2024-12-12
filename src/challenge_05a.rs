@@ -4,7 +4,6 @@ use std::ops::Index;
 pub fn run() -> i32 {
     let data = fs::read_to_string("inputs/challenge_05a.txt").expect("Cannot find the file");
 
-
     let split: Vec<&str> = data.split("\n\n").collect::<Vec<_>>();
     let orders = split[0].split("\n").map(|o| {
         let orders = o.split("|").collect::<Vec<_>>();
@@ -15,11 +14,11 @@ pub fn run() -> i32 {
             .map(|p| p.parse::<i32>().unwrap()).collect::<Vec<_>>()
     ).collect::<Vec<_>>();
     let valid_updates = find_valid_updates(&orders, &updates);
-    some_middle_valid_updates(valid_updates)
+    sum_updates(valid_updates)
 }
 
-fn some_middle_valid_updates(valid_updates: Vec<Vec<i32>>) -> i32 {
-    valid_updates.iter().fold(0, |acc, u| {
+fn sum_updates(updates: Vec<Vec<i32>>) -> i32 {
+    updates.iter().fold(0, |acc, u| {
         let middle_index = (u.iter().count() as f32 / 2.).floor();
         acc + u[middle_index as usize]
     })
@@ -55,7 +54,7 @@ mod tests {
     #[test]
     fn final_result() {
         let result = run();
-        assert_eq!(result, 2046);
+        assert_eq!(result, 4569);
     }
 
     #[test]
